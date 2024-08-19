@@ -22,7 +22,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           a = !0, i = e;
         } finally {
           try {
-            if (!l && null != r.return && (u = r.return(), Object(u) !== u)) return;
+            if (!l && null != r["return"] && (u = r["return"](), Object(u) !== u)) return;
           } finally {
             if (a) throw i;
           }

@@ -217,7 +217,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     Jt = it,
     Kt = r.Symbol,
     Xt = $t("wks"),
-    Qt = Jt ? Kt.for || Kt : Kt && Kt.withoutSetter || Vt,
+    Qt = Jt ? Kt["for"] || Kt : Kt && Kt.withoutSetter || Vt,
     Zt = function Zt(t) {
       return Gt(Xt, t) || (Xt[t] = Yt && Gt(Kt, t) ? Kt[t] : Qt("Symbol." + t)), Xt[t];
     },
@@ -1801,7 +1801,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             done: !!vl++
           };
         },
-        return: function _return() {
+        "return": function _return() {
           pl = !0;
         }
       };
@@ -1880,12 +1880,12 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     forced: Ol,
     real: !0
   }, {
-    catch: function _catch(t) {
+    "catch": function _catch(t) {
       return this.then(void 0, t);
     }
   }), Tl(Rl)) {
-    var jl = Il("Promise").prototype.catch;
-    kl.catch !== jl && Pl(kl, "catch", jl, {
+    var jl = Il("Promise").prototype["catch"];
+    kl["catch"] !== jl && Pl(kl, "catch", jl, {
       unsafe: !0
     });
   }
@@ -2823,7 +2823,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             for (var t = a(this), e = t.first; e;) e.removed = !0, e.previous && (e.previous = e.previous.next = void 0), e = e.next;
             t.first = t.last = void 0, t.index = Jy(null), om ? t.size = 0 : this.size = 0;
           },
-          delete: function _delete(t) {
+          "delete": function _delete(t) {
             var e = this,
               r = a(e),
               n = c(e, t);
@@ -3944,7 +3944,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     eO = ub.exportTypedArrayMethod,
     rO = !!function () {
       try {
-        new Int8Array(1).with(2, {
+        new Int8Array(1)["with"](2, {
           valueOf: function valueOf() {
             throw 8;
           }
@@ -3954,13 +3954,13 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       }
     }();
   eO("with", {
-    with: function _with(t, e) {
+    "with": function _with(t, e) {
       var r = ZA(this),
         n = XA(t),
         i = KA(r) ? QA(e) : +e;
       return JA(r, tO(r), n, i);
     }
-  }.with, !rO);
+  }["with"], !rO);
   var nO = S,
     iO = Yy,
     oO = ky.getWeakData,
@@ -3999,7 +3999,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       var r = bO(this, t);
       r ? r[1] = e : this.entries.push([t, e]);
     },
-    delete: function _delete(t) {
+    "delete": function _delete(t) {
       var e = dO(this.entries, function (e) {
         return e[0] === t;
       });
@@ -4027,11 +4027,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             return !0 === i ? mO(n).set(e, r) : i[n.id] = r, t;
           };
         return iO(o, {
-          delete: function _delete(t) {
+          "delete": function _delete(t) {
             var e = a(this);
             if (!sO(t)) return !1;
             var r = oO(t);
-            return !0 === r ? mO(e).delete(t) : r && hO(r, e.id) && delete r[e.id];
+            return !0 === r ? mO(e)["delete"](t) : r && hO(r, e.id) && delete r[e.id];
           },
           has: function has(t) {
             var e = a(this);
@@ -4086,14 +4086,14 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     $O = OO(WO.set);
   if (UO) if (zO) {
     SO = PO.getConstructor(qO, "WeakMap", !0), IO.enable();
-    var GO = OO(WO.delete),
+    var GO = OO(WO["delete"]),
       VO = OO(WO.has),
       YO = OO(WO.get);
     RO(WO, {
-      delete: function _delete(t) {
+      "delete": function _delete(t) {
         if (kO(t) && !FO(t)) {
           var e = jO(this);
-          return e.frozen || (e.frozen = new SO()), GO(this, t) || e.frozen.delete(t);
+          return e.frozen || (e.frozen = new SO()), GO(this, t) || e.frozen["delete"](t);
         }
         return GO(this, t);
       },
@@ -4175,7 +4175,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             throw r.done = !0, v_;
           }
         },
-        return: function _return() {
+        "return": function _return() {
           var r = e(this),
             n = r.iterator;
           if (r.done = !0, t) {
@@ -4273,7 +4273,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       Set: Set,
       add: UR(CR.add),
       has: UR(CR.has),
-      remove: UR(CR.delete),
+      remove: UR(CR["delete"]),
       proto: CR
     },
     FR = MR.has,
@@ -4936,12 +4936,12 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     proto: !0,
     real: !0,
     forced: !!wk && bk(function () {
-      Rk.finally.call({
+      Rk["finally"].call({
         then: function then() {}
       }, function () {});
     })
   }, {
-    finally: function _finally(t) {
+    "finally": function _finally(t) {
       var e = Ek(this, Sk("Promise")),
         r = xk(t);
       return this.then(r ? function (r) {
@@ -4955,8 +4955,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       } : t);
     }
   }), xk(wk)) {
-    var Ik = Sk("Promise").prototype.finally;
-    Rk.finally !== Ik && Ok(Rk, "finally", Ik, {
+    var Ik = Sk("Promise").prototype["finally"];
+    Rk["finally"] !== Ik && Ok(Rk, "finally", Ik, {
       unsafe: !0
     });
   }
@@ -5621,8 +5621,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         r = new URLSearchParams("a=1&a=2&b=3"),
         n = "";
       return t.pathname = "c%20d", e.forEach(function (t, r) {
-        e.delete("b"), n += r + t;
-      }), r.delete("a", 2), r.delete("b", void 0), !e.size && !cC || !e.sort || "http://a/c%20d?a=1&c=3" !== t.href || "3" !== e.get("c") || "a=1" !== String(new URLSearchParams("?a=1")) || !e[sC] || "a" !== new URL("https://a@b").username || "b" !== new URLSearchParams(new URLSearchParams("a=b")).get("a") || "xn--e1aybc" !== new URL("http://тест").host || "#%D0%B1" !== new URL("http://a#б").hash || "a1c3" !== n || "x" !== new URL("http://x", void 0).host;
+        e["delete"]("b"), n += r + t;
+      }), r["delete"]("a", 2), r["delete"]("b", void 0), !e.size && !cC || !e.sort || "http://a/c%20d?a=1&c=3" !== t.href || "3" !== e.get("c") || "a=1" !== String(new URLSearchParams("?a=1")) || !e[sC] || "a" !== new URL("https://a@b").username || "b" !== new URLSearchParams(new URLSearchParams("a=b")).get("a") || "xn--e1aybc" !== new URL("http://тест").host || "#%D0%B1" !== new URL("http://a#б").hash || "a1c3" !== n || "x" !== new URL("http://x", void 0).host;
     }),
     hC = o,
     lC = S,
@@ -5896,7 +5896,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         value: cM(e)
       }), VC || this.length++, r.updateURL();
     },
-    delete: function _delete(t) {
+    "delete": function _delete(t) {
       for (var e = bM(this), r = vM(arguments.length, 1), n = e.entries, i = cM(t), o = r < 2 ? void 0 : arguments[1], a = void 0 === o ? o : cM(o), u = 0; u < n.length;) {
         var c = n[u];
         if (c.key !== i || void 0 !== a && c.value !== a) u++;else if (FM(n, u, 1), void 0 !== a) break;
@@ -6651,11 +6651,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     VB = URLSearchParams,
     YB = VB.prototype,
     JB = WB(YB.append),
-    KB = WB(YB.delete),
+    KB = WB(YB["delete"]),
     XB = WB(YB.forEach),
     QB = WB([].push),
     ZB = new VB("a=1&a=2&b=3");
-  ZB.delete("a", 1), ZB.delete("b", void 0), ZB + "" != "a=2" && HB(YB, "delete", function (t) {
+  ZB["delete"]("a", 1), ZB["delete"]("b", void 0), ZB + "" != "a=2" && HB(YB, "delete", function (t) {
     var e = arguments.length,
       r = e < 2 ? void 0 : arguments[1];
     if (e && void 0 === r) return KB(this, t);
@@ -6802,8 +6802,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             }
             return e;
           }, 2 === n[1].length ? {
-            import: function _import(e, n) {
-              return t.import(e, r, n);
+            "import": function _import(e, n) {
+              return t["import"](e, r, n);
             },
             meta: t.createContext(r)
           } : void 0);
@@ -6846,7 +6846,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         return e.p && null !== e.p.e || (e.p = r), Promise.all(e.d.map(function (e) {
           return l(t, e, r, n);
         }));
-      }).catch(function (t) {
+      })["catch"](function (t) {
         if (e.er) throw t;
         throw e.e = null, t;
       });
@@ -6893,7 +6893,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       [].forEach.call(document.querySelectorAll("script"), function (t) {
         if (!t.sp) if ("systemjs-module" === t.type) {
           if (t.sp = !0, !t.src) return;
-          System.import("import:" === t.src.slice(0, 7) ? t.src.slice(7) : n(t.src, g)).catch(function (e) {
+          System["import"]("import:" === t.src.slice(0, 7) ? t.src.slice(7) : n(t.src, g))["catch"](function (e) {
             if (e.message.indexOf("https://github.com/systemjs/systemjs/blob/main/docs/errors.md#3") > -1) {
               var r = document.createEvent("Event");
               r.initEvent("error", !1, !1), t.dispatchEvent(r);
@@ -6908,7 +6908,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           }).then(function (t) {
             if (!t.ok) throw Error(t.status);
             return t.text();
-          }).catch(function (r) {
+          })["catch"](function (r) {
             return r.message = e("W4", t.src) + "\n" + r.message, console.warn(r), "function" == typeof t.onerror && t.onerror(), "{}";
           }) : t.innerHTML;
           j = j.then(function () {
@@ -6945,7 +6945,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       O = y && Symbol.toStringTag,
       R = y ? Symbol() : "@",
       I = f.prototype;
-    I.import = function (t, e, r) {
+    I["import"] = function (t, e, r) {
       var n = this;
       return e && "object" == _typeof(e) && (r = e, e = void 0), Promise.resolve(n.prepareImport()).then(function () {
         return n.resolve(t, e, r);
@@ -7007,7 +7007,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           P = t;
           var i = this;
           k = setTimeout(function () {
-            B[n.src] = [t, e], i.import(n.src);
+            B[n.src] = [t, e], i["import"](n.src);
           });
         }
       } else P = void 0;

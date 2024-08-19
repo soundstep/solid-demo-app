@@ -6,7 +6,7 @@ function _get() { return _get = "undefined" != typeof Reflect && Reflect.get ? R
 function _superPropBase(t, o) { for (; !{}.hasOwnProperty.call(t, o) && null !== (t = _getPrototypeOf(t));); return t; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
@@ -214,7 +214,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function k(t, r) {
       var n = r.method,
         o = t.iterator[n];
-      if (o === e) return r.delegate = null, "throw" === n && t.iterator.return && (r.method = "return", r.arg = e, k(t, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), g;
+      if (o === e) return r.delegate = null, "throw" === n && t.iterator["return"] && (r.method = "return", r.arg = e, k(t, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), g;
       var i = u(o, t.iterator, r.arg);
       if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, g;
       var a = i.arg;
@@ -347,7 +347,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           if (r.finallyLoc === e) return this.complete(r.completion, r.afterLoc), B(r), g;
         }
       },
-      catch: function _catch(e) {
+      "catch": function _catch(e) {
         for (var t = this.tryEntries.length - 1; t >= 0; --t) {
           var r = this.tryEntries[t];
           if (r.tryLoc === e) {
@@ -456,7 +456,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           d = !0, o = e;
         } finally {
           try {
-            if (!l && null != r.return && (a = r.return(), Object(a) !== a)) return;
+            if (!l && null != r["return"] && (a = r["return"](), Object(a) !== a)) return;
           } finally {
             if (d) throw o;
           }
@@ -508,7 +508,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       },
       f: function f() {
         try {
-          a || null == r.return || r.return();
+          a || null == r["return"] || r["return"]();
         } finally {
           if (s) throw i;
         }
@@ -618,7 +618,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             var n = Promise.resolve();
             return n.then(function () {
               return e();
-            }).catch(function (e) {
+            })["catch"](function (e) {
               var t = new Event("vite:preloadError", {
                 cancelable: !0
               });
@@ -867,7 +867,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             var r,
               i = _e;
             i && ((r = n.get(e)) ? r.add(i) : n.set(e, r = new Set([i])), Ye(function () {
-              r.delete(i), !r.size && n.delete(e);
+              r["delete"](i), !r.size && n["delete"](e);
             }));
             return t(e, o.value);
           };
@@ -1235,13 +1235,13 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                   l = a[1];
                 fe.count || (fe.count = 0), fe.count++, (r || (r = e())).then(function (e) {
                   pe(i), fe.count--, l(function () {
-                    return e.default;
+                    return e["default"];
                   }), pe();
                 }), t = s;
               } else if (!t) {
                 var d = C(Pe(function () {
                   return (r || (r = e())).then(function (e) {
-                    return e.default;
+                    return e["default"];
                   });
                 }), 1)[0];
                 t = d;
@@ -1259,7 +1259,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           return n.preload = function () {
             return r || ((r = e()).then(function (e) {
               return t = function t() {
-                return e.default;
+                return e["default"];
               };
             }), r);
           }, n;
@@ -1373,7 +1373,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               try {
                 for (n.s(); !(e = n.n()).done;) {
                   var o = e.value;
-                  t - o.lastUpdate > r && (_this2.releaseCallback(o.id), _this2.textureMap.delete(o.id), _this2.zeroReferenceTextureSet.delete(o));
+                  t - o.lastUpdate > r && (_this2.releaseCallback(o.id), _this2.textureMap["delete"](o.id), _this2.zeroReferenceTextureSet["delete"](o));
                 }
               } catch (i) {
                 n.e(i);
@@ -1405,7 +1405,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                 r = null === (t = e.options) || void 0 === t ? void 0 : t.id;
               _(r, "Texture must have an id to be registered");
               var n = this.textureMap.get(r);
-              n || (this.registerTexture(e), n = this.textureMap.get(r)), _(n, "Texture must have been registered"), "SubTexture" === e.txType && this.incrementTextureRefCount(e.props.texture), n.nodeRefCount++, n.lastUpdate = Date.now(), this.zeroReferenceTextureSet.has(n) && this.zeroReferenceTextureSet.delete(n);
+              n || (this.registerTexture(e), n = this.textureMap.get(r)), _(n, "Texture must have been registered"), "SubTexture" === e.txType && this.incrementTextureRefCount(e.props.texture), n.nodeRefCount++, n.lastUpdate = Date.now(), this.zeroReferenceTextureSet.has(n) && this.zeroReferenceTextureSet["delete"](n);
             }
           }, {
             key: "decrementTextureRefCount",
@@ -1862,7 +1862,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               a = new FontFace(e, "url(".concat(n, ")"), i);
             a.load().then(function () {
               _this7.loaded = !0, _this7.emit("loaded");
-            }).catch(console.error), _this7.fontFace = a, _this7.fontUrl = r;
+            })["catch"](console.error), _this7.fontFace = a, _this7.fontUrl = r;
             return _this7;
           }
           _inherits(zt, _I);
@@ -1907,7 +1907,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               if (document.fonts) {
                 var e = this._getFontSetting();
                 try {
-                  if (!document.fonts.check(e, this._settings.text)) return document.fonts.load(e, this._settings.text).catch(function (t) {
+                  if (!document.fonts.check(e, this._settings.text)) return document.fonts.load(e, this._settings.text)["catch"](function (t) {
                     console.warn("[Lightning] Font load error", t, e);
                   }).then(function () {
                     document.fonts.check(e, _this8._settings.text) || console.warn("[Lightning] Font not found", e);
@@ -2256,7 +2256,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                 if (e.fontInfo = {
                   cssString: t,
                   loaded: !1
-                }, !e.fontInfo.loaded) return void Dt.load(t).then(this.onFontLoaded.bind(this, e, t)).catch(this.onFontLoadError.bind(this, e, t));
+                }, !e.fontInfo.loaded) return void Dt.load(t).then(this.onFontLoaded.bind(this, e, t))["catch"](this.onFontLoadError.bind(this, e, t));
               }
               var r, n;
               if (e.fontInfo.loaded) {
@@ -3914,7 +3914,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                         }, l.onerror = function () {
                           return t(new Error("Failed to load image"));
                         };
-                      }).catch(function (e) {
+                      })["catch"](function (e) {
                         console.error(e);
                       });
                     case 33:
@@ -4565,21 +4565,21 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               for (;;) switch (e.prev = e.next) {
                 case 0:
                   return e.prev = 0, console.log("Loading core extension", t), e.next = 4, ce(function () {
-                    return A.import(t);
+                    return A["import"](t);
                   }, void 0, A.meta.url);
                 case 4:
                   n = e.sent, e.next = 12;
                   break;
                 case 7:
-                  return e.prev = 7, e.t0 = e.catch(0), console.error("The core extension module at '".concat(t, "' could not be loaded.")), console.error(e.t0), e.abrupt("return");
+                  return e.prev = 7, e.t0 = e["catch"](0), console.error("The core extension module at '".concat(t, "' could not be loaded.")), console.error(e.t0), e.abrupt("return");
                 case 12:
-                  if (n.default) {
+                  if (n["default"]) {
                     e.next = 15;
                     break;
                   }
                   return console.error("The core extension module at '".concat(t, "' does not have a default export.")), e.abrupt("return");
                 case 15:
-                  if (o = n.default, !(o.prototype instanceof V)) {
+                  if (o = n["default"], !(o.prototype instanceof V)) {
                     e.next = 29;
                     break;
                   }
@@ -4588,7 +4588,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                   e.next = 27;
                   break;
                 case 23:
-                  e.prev = 23, e.t1 = e.catch(18), console.error("The core extension at '".concat(t, "' threw an error.")), console.error(e.t1);
+                  e.prev = 23, e.t1 = e["catch"](18), console.error("The core extension at '".concat(t, "' threw an error.")), console.error(e.t1);
                 case 27:
                   e.next = 30;
                   break;
@@ -4603,7 +4603,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         }
         function Ir(e) {
           for (var t = {
-              boolean: !0,
+              "boolean": !0,
               string: !0,
               number: !0,
               undefined: !0
@@ -4660,7 +4660,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             r.onCreateNode = function (e) {
               _this34.nodes.set(e.id, e);
             }, r.onBeforeDestroyNode = function (e) {
-              _this34.nodes.delete(e.id);
+              _this34.nodes["delete"](e.id);
             }, r.onFpsUpdate = function (e) {
               _this34.emit("fpsUpdate", e);
             }, r.onFrameTick = function (e) {
@@ -6189,7 +6189,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           }, {
             key: "unregisterAnimation",
             value: function unregisterAnimation(e) {
-              this.activeAnimations.delete(e);
+              this.activeAnimations["delete"](e);
             }
           }, {
             key: "update",
@@ -6356,9 +6356,9 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                 n = this.textureRefCountMap,
                 o = r.get(e);
               if (o) {
-                if (r.delete(e), n.has(o)) {
+                if (r["delete"](e), n.has(o)) {
                   var i = n.get(o);
-                  _(i), i.count--, 0 === i.count && (n.delete(o), i.cacheKey && this.textureKeyCache.delete(i.cacheKey));
+                  _(i), i.count--, 0 === i.count && (n["delete"](o), i.cacheKey && this.textureKeyCache["delete"](i.cacheKey));
                 }
                 null === (t = this.ctxTextureCache.get(o)) || void 0 === t || t.free();
               }
@@ -6410,7 +6410,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           return _createClass(Xr, [{
             key: "setTextureMemUse",
             value: function setTextureMemUse(e, t) {
-              this.textures.has(e) && (this.memUsed -= this.textures.get(e)), 0 !== t ? (this.memUsed += t, this.textures.set(e, t), this.memUsed > this.threshold && (this.gcRequested = !0)) : this.textures.delete(e);
+              this.textures.has(e) && (this.memUsed -= this.textures.get(e)), 0 !== t ? (this.memUsed += t, this.textures.set(e, t), this.memUsed > this.threshold && (this.gcRequested = !0)) : this.textures["delete"](e);
             }
           }, {
             key: "gc",
@@ -6461,7 +6461,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               var _this48 = this;
               "freed" === this.textureSource.state && (this.textureSource.setState("loading"), this.onLoadRequest().then(function (e) {
                 _this48.textureSource.setState("loaded", e), _this48.updateMemSize();
-              }).catch(function (e) {
+              })["catch"](function (e) {
                 _this48.textureSource.setState("failed", e);
               }));
             }
@@ -8263,7 +8263,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           return {
             subscribe: function subscribe(t) {
               return e.add(t), function () {
-                return e.delete(t);
+                return e["delete"](t);
               };
             },
             confirm: function confirm(r, n) {
@@ -9287,7 +9287,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                     d = 0, e.next = 44;
                     break;
                   case 26:
-                    if (e.prev = 26, e.t0 = e.catch(20), !(e.t0 instanceof SpeechSynthesisErrorEvent)) {
+                    if (e.prev = 26, e.t0 = e["catch"](20), !(e.t0 instanceof SpeechSynthesisErrorEvent)) {
                       e.next = 43;
                       break;
                     }
@@ -9437,9 +9437,9 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             var n;
             Jo.onFocusChange && Jo.enabled && (Jo.onFocusChange.flush(), t && $o && $o.active ? $o.append(e) : (Jo.cancel(), function (e) {
               if (!Go) $o = Qo(e);
-            }(e)), r && (Go = !0, null === (n = $o) || void 0 === n || n.series.finally(function () {
+            }(e)), r && (Go = !0, null === (n = $o) || void 0 === n || n.series["finally"](function () {
               Go = !1, Jo.refresh();
-            }).catch(console.error)));
+            })["catch"](console.error)));
             return $o;
           },
           refresh: function refresh() {
@@ -9853,7 +9853,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               Keyboard: {
                 base: {
                   keyProps: {
-                    delete: {
+                    "delete": {
                       title: null,
                       icon: "data:image/png;base64,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"
                     }
@@ -12333,7 +12333,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                         for (var r = [], n = 0, o = e.length; n < o; n += t) r.push(e.slice(n, n + t));
                         return r;
                       }((kl.has(c) ? kl.get(c) : []).concat(Rl(t)));
-                    return r[r.length - 1].length < 7 ? kl.set(c, r.pop()) : kl.delete(c), r;
+                    return r[r.length - 1].length < 7 ? kl.set(c, r.pop()) : kl["delete"](c), r;
                   });
                   return _l.set(t, r), r;
                 }, r = C(Ee([]), 2), n = r[0], o = r[1], i = C(Ee(1), 2), a = i[0], s = i[1], l = C(Ee(!1), 2), d = l[0], h = l[1], u = C(Pe(a, t), 1)[0], Fe(function () {
@@ -12440,72 +12440,72 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           Hl = new URL("AppCoreExtensions-legacy-DXcEaW6c.js", A.meta.url).href,
           jl = xt(function () {
             return ce(function () {
-              return A.import("./Grid-legacy-YDrzolwM.js");
+              return A["import"]("./Grid-legacy-YDrzolwM.js");
             }, void 0, A.meta.url);
           }),
           Ql = xt(function () {
             return ce(function () {
-              return A.import("./Portal-legacy-DsBqEG6K.js");
+              return A["import"]("./Portal-legacy-DsBqEG6K.js");
             }, void 0, A.meta.url);
           }),
           Kl = xt(function () {
             return ce(function () {
-              return A.import("./Text-legacy-D97JSden.js");
+              return A["import"]("./Text-legacy-D97JSden.js");
             }, void 0, A.meta.url);
           }),
           $l = xt(function () {
             return ce(function () {
-              return A.import("./Create-legacy-Ca9UL4Pq.js");
+              return A["import"]("./Create-legacy-Ca9UL4Pq.js");
             }, void 0, A.meta.url);
           }),
           Xl = xt(function () {
             return ce(function () {
-              return A.import("./Viewport-legacy-y7UvoUUa.js");
+              return A["import"]("./Viewport-legacy-y7UvoUUa.js");
             }, void 0, A.meta.url);
           }),
           Gl = xt(function () {
             return ce(function () {
-              return A.import("./Buttons-legacy-DoShHRE8.js");
+              return A["import"]("./Buttons-legacy-DoShHRE8.js");
             }, void 0, A.meta.url);
           }),
           Vl = xt(function () {
             return ce(function () {
-              return A.import("./Flex-legacy-CkfGD2tp.js");
+              return A["import"]("./Flex-legacy-CkfGD2tp.js");
             }, void 0, A.meta.url);
           }),
           Zl = xt(function () {
             return ce(function () {
-              return A.import("./FlexSize-legacy-DAl4B736.js");
+              return A["import"]("./FlexSize-legacy-DAl4B736.js");
             }, void 0, A.meta.url);
           }),
           ql = xt(function () {
             return ce(function () {
-              return A.import("./FlexColumnSize-legacy-D2CUnhJY.js");
+              return A["import"]("./FlexColumnSize-legacy-D2CUnhJY.js");
             }, void 0, A.meta.url);
           }),
           Jl = xt(function () {
             return ce(function () {
-              return A.import("./FlexColumn-legacy-C8FC7C2h.js");
+              return A["import"]("./FlexColumn-legacy-C8FC7C2h.js");
             }, void 0, A.meta.url);
           }),
           ed = xt(function () {
             return ce(function () {
-              return A.import("./ButtonsMaterial-legacy-uAT8J-6A.js");
+              return A["import"]("./ButtonsMaterial-legacy-uAT8J-6A.js");
             }, void 0, A.meta.url);
           }),
           td = xt(function () {
             return ce(function () {
-              return A.import("./SuperFlex-legacy-CVrzC_jD.js");
+              return A["import"]("./SuperFlex-legacy-CVrzC_jD.js");
             }, void 0, A.meta.url);
           }),
           rd = xt(function () {
             return ce(function () {
-              return A.import("./Entity-legacy-D-t8W9u_.js");
+              return A["import"]("./Entity-legacy-D-t8W9u_.js");
             }, void 0, A.meta.url);
           }),
           nd = xt(function () {
             return ce(function () {
-              return A.import("./People-legacy-CkcDYcuT.js");
+              return A["import"]("./People-legacy-CkcDYcuT.js");
             }, void 0, A.meta.url);
           });
         dn.debug = !1, dn.animationsEnabled = !0, dn.fontSettings.fontFamily = "Ubuntu", dn.fontSettings.color = Qn("#f6f6f6"), dn.fontSettings.fontSize = 32, dn.rendererOptions = {

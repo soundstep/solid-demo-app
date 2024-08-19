@@ -40,7 +40,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           u = !0, n = t;
         } finally {
           try {
-            if (!h && null != r.return && (a = r.return(), Object(a) !== a)) return;
+            if (!h && null != r["return"] && (a = r["return"](), Object(a) !== a)) return;
           } finally {
             if (u) throw n;
           }
@@ -211,7 +211,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function M(e, r) {
       var i = r.method,
         n = e.iterator[i];
-      if (n === t) return r.delegate = null, "throw" === i && e.iterator.return && (r.method = "return", r.arg = t, M(e, r), "throw" === r.method) || "return" !== i && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + i + "' method")), E;
+      if (n === t) return r.delegate = null, "throw" === i && e.iterator["return"] && (r.method = "return", r.arg = t, M(e, r), "throw" === r.method) || "return" !== i && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + i + "' method")), E;
       var s = l(n, e.iterator, r.arg);
       if ("throw" === s.type) return r.method = "throw", r.arg = s.arg, r.delegate = null, E;
       var a = s.arg;
@@ -344,7 +344,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), L(r), E;
         }
       },
-      catch: function _catch(t) {
+      "catch": function _catch(t) {
         for (var e = this.tryEntries.length - 1; e >= 0; --e) {
           var r = this.tryEntries[e];
           if (r.tryLoc === t) {
@@ -758,7 +758,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           return _createClass(v, [{
             key: "setRenderableOwner",
             value: function setRenderableOwner(t, e) {
-              e ? this.renderableOwners.add(t) : this.renderableOwners.delete(t);
+              e ? this.renderableOwners.add(t) : this.renderableOwners["delete"](t);
             }
           }, {
             key: "renderable",
@@ -1124,7 +1124,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
                   width: t,
                   height: e
                 }));
-              }).catch(function (t) {
+              })["catch"](function (t) {
                 _this9._state = "failed", _this9.textureSource.setState("failed", t), console.error(t);
               }));
             }
@@ -1368,7 +1368,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             key: "deleteTexture",
             value: function deleteTexture(t) {
               var e = this.gl;
-              t && this.texture2dParams.delete(t), e.deleteTexture(t);
+              t && this.texture2dParams["delete"](t), e.deleteTexture(t);
             }
           }, {
             key: "viewport",
@@ -2056,7 +2056,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               return function (e) {
                 return t.apply(this, arguments);
               };
-            }()).catch(console.error);
+            }())["catch"](console.error);
             return _this16;
           }
           _inherits(_class, _E);

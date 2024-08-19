@@ -21,7 +21,7 @@
           c = !0, i = t;
         } finally {
           try {
-            if (!a && null != r.return && (o = r.return(), Object(o) !== o)) return;
+            if (!a && null != r["return"] && (o = r["return"](), Object(o) !== o)) return;
           } finally {
             if (c) throw i;
           }

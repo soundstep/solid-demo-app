@@ -160,7 +160,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function F(t, e) {
       var n = e.method,
         o = t.iterator[n];
-      if (o === r) return e.delegate = null, "throw" === n && t.iterator.return && (e.method = "return", e.arg = r, F(t, e), "throw" === e.method) || "return" !== n && (e.method = "throw", e.arg = new TypeError("The iterator does not provide a '" + n + "' method")), g;
+      if (o === r) return e.delegate = null, "throw" === n && t.iterator["return"] && (e.method = "return", e.arg = r, F(t, e), "throw" === e.method) || "return" !== n && (e.method = "throw", e.arg = new TypeError("The iterator does not provide a '" + n + "' method")), g;
       var i = l(o, t.iterator, e.arg);
       if ("throw" === i.type) return e.method = "throw", e.arg = i.arg, e.delegate = null, g;
       var a = i.arg;
@@ -293,7 +293,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           if (e.finallyLoc === t) return this.complete(e.completion, e.afterLoc), G(e), g;
         }
       },
-      catch: function _catch(t) {
+      "catch": function _catch(t) {
         for (var r = this.tryEntries.length - 1; r >= 0; --r) {
           var e = this.tryEntries[r];
           if (e.tryLoc === t) {

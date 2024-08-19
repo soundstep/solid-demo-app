@@ -27,7 +27,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           c = !0, o = t;
         } finally {
           try {
-            if (!l && null != r.return && (u = r.return(), Object(u) !== u)) return;
+            if (!l && null != r["return"] && (u = r["return"](), Object(u) !== u)) return;
           } finally {
             if (c) throw o;
           }
