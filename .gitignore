@@ -1,6 +1,7 @@
 node_modules/
 .DS_Store
 dist/
+dist-es5/
 ui/lightning/src/api/key.ts
 # This project uses `pnpm` for package management
 package-lock.json
