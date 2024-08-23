@@ -1,3 +1,20 @@
+import "core-js/es/map";
+import "core-js/es/set";
+import "core-js/es/promise";
+import "core-js/es/array";
+import "core-js/es/string";
+import "core-js/es/number";
+import "core-js/es/object";
+import "core-js/es/symbol";
+import "core-js/es/function";
+import "raf/polyfill";
+import "url-polyfill";
+import "focus-options-polyfill";
+import "unfetch/polyfill";
+import "abortcontroller-polyfill";
+import "allsettled-polyfill";
+import "intersection-observer";
+
 import { render, Config, hexColor } from "@lightningjs/solid";
 import { HashRouter, Route } from "@solidjs/router";
 import { lazy } from "solid-js";
@@ -28,32 +45,32 @@ Config.fontSettings.fontFamily = "Ubuntu";
 Config.fontSettings.color = hexColor("#f6f6f6");
 Config.fontSettings.fontSize = 32;
 Config.rendererOptions = {
-  coreExtensionModule: coreExtensionModuleUrl,
-  fpsUpdateInterval: logFps ? 200 : 0,
-  enableInspector: true,
-  // Set the resolution based on window height
-  // 720p = 0.666667, 1080p = 1, 1440p = 1.5, 2160p = 2
-  deviceLogicalPixelRatio: window.innerHeight / 1080,
+    coreExtensionModule: coreExtensionModuleUrl,
+    fpsUpdateInterval: logFps ? 200 : 0,
+    enableInspector: true,
+    // Set the resolution based on window height
+    // 720p = 0.666667, 1080p = 1, 1440p = 1.5, 2160p = 2
+    deviceLogicalPixelRatio: window.innerHeight / 1080,
 };
 
 render(() => (
-  <HashRouter root={(props) => <App {...props} />}>
-    <Route path="" component={Browse} />
-    <Route path="examples" component={Portal} />
-    <Route path="browse/:filter" component={Browse} />
-    <Route path="grid" component={Grid} />
-    <Route path="text" component={TextPage} />
-    <Route path="buttons" component={ButtonsPage} />
-    <Route path="flex" component={FlexPage} />
-    <Route path="create" component={CreatePage} />
-    <Route path="viewport" component={ViewportPage} />
-    <Route path="flexsize" component={FlexSizePage} />
-    <Route path="flexcolumnsize" component={FlexColumnSizePage} />
-    <Route path="flexcolumn" component={FlexColumnPage} />
-    <Route path="superflex" component={SuperFlexPage} />
-    <Route path="buttonsmaterial" component={ButtonsMaterialPage} />
-    <Route path="entity/people/:id" component={People} />
-    <Route path="entity/:type/:id" component={Entity} />
-    <Route path="*all" component={NotFound} />
-  </HashRouter>
+    <HashRouter root={(props) => <App {...props} />}>
+        <Route path="" component={Browse} />
+        <Route path="examples" component={Portal} />
+        <Route path="browse/:filter" component={Browse} />
+        <Route path="grid" component={Grid} />
+        <Route path="text" component={TextPage} />
+        <Route path="buttons" component={ButtonsPage} />
+        <Route path="flex" component={FlexPage} />
+        <Route path="create" component={CreatePage} />
+        <Route path="viewport" component={ViewportPage} />
+        <Route path="flexsize" component={FlexSizePage} />
+        <Route path="flexcolumnsize" component={FlexColumnSizePage} />
+        <Route path="flexcolumn" component={FlexColumnPage} />
+        <Route path="superflex" component={SuperFlexPage} />
+        <Route path="buttonsmaterial" component={ButtonsMaterialPage} />
+        <Route path="entity/people/:id" component={People} />
+        <Route path="entity/:type/:id" component={Entity} />
+        <Route path="*all" component={NotFound} />
+    </HashRouter>
 ));

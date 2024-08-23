@@ -22,3 +22,9 @@ To run the web app:
 ```
 pnpm start:web
 ```
+
+## Added
+
+```sh
+pnpm deploy:lightning:es5
+```
