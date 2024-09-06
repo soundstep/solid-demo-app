@@ -5,8 +5,6 @@
   <title>Solid Demo</title>
   <meta charset="UTF-8" />
   <!-- Don't inline styles for Tizen CSP rules -->
-  <script type="module" crossorigin src="./assets/index-CMXG2PLb.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/CoreExtension-DUlHFTtP.js">
   <link rel="stylesheet" crossorigin href="./assets/index-B0KZGjmD.css">
 </head>
 
@@ -14,7 +12,9 @@
   <div id="app"></div>
   <video id="video" width="640" hidden class="center-element" poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
     controls autoplay></video>
+  <script src="./src/index.tsx"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/shaka-player/4.7.0/shaka-player.compiled.js" defer></script>
+  <script src="./src/video.js" defer></script>
 </body>
 
 </html>
